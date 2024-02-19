@@ -45,6 +45,42 @@ prototyping them and making iterative refinements along the way.
 To find our more about Kailo, check out our site: https://kailo.community/''')
     st.image('images/kailo_systems_adapted.png')
 
+header_container('orange_container', '🐝 The #BeeWell survey', '#F7DCC8')
+with st.expander('Who took part in the #BeeWell survey in Devon?',
+                 expanded=expand):
+    st.markdown('''
+This years, pupils in Years 7 to 11 at **two non-mainstream schools** in North
+Devon and Torridge completed the symbol version of the #BeeWell survey.
+
+A longer, standard version of the survey was also completed by pupils in Years
+8 and 10 at **seven mainstream secondary schools** in Northern Devon.''')
+    st.image('images/northern_devon.png')
+
+with st.expander('What questions did the survey ask?', expanded=expand):
+    st.markdown('''The survey contained ten questions which use the Widgit
+                symbol system. These were:''')
+    # Add the images (they are the same as those used for the survey, but
+    # cropped to height of 340 to remove the 'choose one' from each)
+    st.image('images/survey/family_crop.png')
+    st.image('images/survey/home_crop.png')
+    st.image('images/survey/friends_crop.png')
+    st.image('images/survey/choice_crop.png')
+    st.image('images/survey/things_crop.png')
+    st.image('images/survey/health_crop.png')
+    st.image('images/survey/future_crop.png')
+    st.image('images/survey/school_crop.png')
+    st.image('images/survey/free_time_crop.png')
+    st.image('images/survey/life_crop.png')
+    st.markdown('For each questions, pupils had three response options:')
+    st.image('images/survey/choose_one.png')
+    cols = st.columns(3)
+    with cols[0]:
+        st.image('images/survey/happy.png')
+    with cols[1]:
+        st.image('images/survey/ok.png')
+    with cols[2]:
+        st.image('images/survey/sad.png')
+
 st.markdown('To add: remaining sections of About page.')
 
 page_footer(st.session_state.school)

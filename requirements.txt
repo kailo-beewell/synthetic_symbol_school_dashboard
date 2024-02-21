@@ -1,7 +1,7 @@
 geopandas==0.9.0
 numpy==1.26.0
 pandas==2.1.1
-pip==23.3.2
+pip==24.0
 plotly==5.9.0
 
 # For linting jupyter notebooks
@@ -27,6 +27,8 @@ django==4.2.9
 # To run jupyter notebooks
 ipykernel==6.29.0
 
-# No version for security updates.
-# As of 7th Feb 2024, using 1.31.0
-streamlit
+# No version for security updates
+streamlit>=1.31.1
+
+# Local live import of functions for the dashboard
+-e ../kailo_beewell_dashboard_package

@@ -54,53 +54,36 @@ the survey''')
     st.subheader('Download PDF report')
     st.markdown('''
 You can use the interactive dashboard to explore results for your school. We
-also provide the option of downloading a PDF version of your results below. You
-can choose whether the report shows the results for all pupils, or whether it
-provides a comparison of results between two pupil groups.''')
-
-    # Choose comparator
-    chosen_group = st.selectbox(label='In the report, show results:', options=[
-        'For all pupils', 'By year group', 'By gender', 'By FSM', 'By SEN'])
-    blank_lines(1)
-
-    # Get group name with only first character modified to lower case
-    group_lower_first = chosen_group[0].lower() + chosen_group[1:]
-    # Get group name as lower case with no spaces
-    group_file_string = chosen_group.lower().replace(' ', '_')
+also provide the option of downloading a PDF version of your results below.''')
 
     # If report had not be generated, show generate report button
-    if f'pdf_report_{group_file_string}' not in st.session_state:
+    if 'pdf_report' not in st.session_state:
         # If this button is clicked...
-        if st.button(f'''Generate report {group_lower_first} - will take
-                     around 5 seconds'''):
+        if st.button('Generate report - will take around 5 seconds'):
             # Show spinner whilst operation occurs
             with st.spinner('Generating report'):
                 # Produce the HTML for the report
                 st.session_state.html_content = create_static_symbol_report(
                     chosen_school=st.session_state.school,
-                    chosen_group=chosen_group,
                     df_prop=st.session_state.responses,
                     counts=st.session_state.counts,
                     dem_prop=st.session_state.demographic,
-                    pdf_title=f'''
-#BeeWell Kailo School Report 2024 {group_lower_first}''')
+                    pdf_title='#BeeWell Kailo School Report 2024')
                 # Convert to temporary PDF file, then read PDF back into
                 # environment and store report in the session state
                 with NamedTemporaryFile(suffix='.pdf') as temp:
                     weasyprint.HTML(
                         string=st.session_state.html_content).write_pdf(temp)
                     temp.seek(0)
-                    st.session_state[f'pdf_report_{group_file_string}'] = open(
-                        temp.name, 'rb')
+                    st.session_state['pdf_report'] = open(temp.name, 'rb')
             # Re-run script, so the generate button is removed
             st.rerun()
     # If report has been generated for this group, show download button
-    elif f'pdf_report_{group_file_string}' in st.session_state:
+    elif 'pdf_report' in st.session_state:
         st.download_button(
-            label=f'''
-Download report {group_lower_first}''',
-            data=st.session_state[f'pdf_report_{group_file_string}'],
-            file_name=f'kailo_beewell_school_report_{group_file_string}.pdf',
+            label='Download report',
+            data=st.session_state['pdf_report'],
+            file_name='kailo_beewell_school_report.pdf',
             mime='application/pdf')
 
     # BeeWell pupil video

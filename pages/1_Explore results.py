@@ -18,7 +18,6 @@ test = True
 if test:
 
     # Import data (will need to change this to import from TIDB cloud)
-    counts = pd.read_csv('data/survey_data/overall_counts.csv')
     df_prop = pd.read_csv('data/survey_data/aggregate_responses.csv')
 
     # Add title and introduction
@@ -35,7 +34,6 @@ if test:
     # this for simplicity in compatability with the bar chart functions
     # used across the standard and symbol survey dashboards)
     chosen_variable = 'symbol'
-    chosen_variable_lab = 'symbol'
     df_prop['group'] = chosen_variable
 
     # Extract results for the chosen school and group

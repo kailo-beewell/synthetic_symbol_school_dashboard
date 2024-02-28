@@ -4,7 +4,7 @@ from kailo_beewell_dashboard.page_setup import (
 from kailo_beewell_dashboard.reshape_data import get_school_size
 from kailo_beewell_dashboard.who_took_part import (
     create_demographic_page_intro, demographic_plots)
-import pandas as pd
+from kailo_beewell_dashboard.import_data import import_tidb_data
 
 page_setup('symbol')
 
@@ -16,9 +16,12 @@ st.session_state.school = 'School A'
 test = True
 if test:
 
-    # Import data (will need to change this to import from TIDB cloud)
-    dem_prop = pd.read_csv('data/survey_data/aggregate_demographic.csv')
-    counts = pd.read_csv('data/survey_data/overall_counts.csv')
+    # Import the data from TiDB Cloud if not already in session state
+    import_tidb_data('symbol')
+
+    # Assign data from the session state
+    dem_prop = st.session_state.demographic
+    counts = st.session_state.counts
 
     # Get total pupil number
     school_size = get_school_size(counts, st.session_state.school, 'symbol')

@@ -3,27 +3,23 @@ from kailo_beewell_dashboard.page_setup import (
     page_setup, page_footer, blank_lines)
 from kailo_beewell_dashboard.static_report import (
     create_static_symbol_report)
+from kailo_beewell_dashboard.import_data import import_tidb_data
 import weasyprint
 from tempfile import NamedTemporaryFile
-import pandas as pd
 
 page_setup('symbol')
 
 # Set school
 st.session_state.school = 'School A'
 
-# Import data
-st.session_state.responses = pd.read_csv(
-    'data/survey_data/aggregate_responses.csv')
-st.session_state.counts = pd.read_csv(
-    'data/survey_data/overall_counts.csv')
-st.session_state.demographic = pd.read_csv(
-    'data/survey_data/aggregate_demographic.csv')
-
 # Use test=True to indent text, which is basically just to prevent me from
 # having to redo the line indentation once have added check_password()
 test = True
 if test:
+
+    # Import the data from TiDB Cloud if not already in session state
+    import_tidb_data('symbol')
+
     # Title and introduction
     st.title('The #BeeWell Survey')
     st.markdown('''

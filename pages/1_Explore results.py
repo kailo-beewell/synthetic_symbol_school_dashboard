@@ -1,4 +1,3 @@
-import pandas as pd
 import streamlit as st
 from kailo_beewell_dashboard.page_setup import (
     page_setup, page_footer, blank_lines)
@@ -6,6 +5,7 @@ from kailo_beewell_dashboard.explore_results import (
     write_page_title,
     get_chosen_result,
     create_bar_charts)
+from kailo_beewell_dashboard.import_data import import_tidb_data
 
 page_setup('symbol')
 
@@ -17,8 +17,12 @@ st.session_state.school = 'School A'
 test = True
 if test:
 
-    # Import data (will need to change this to import from TIDB cloud)
-    df_prop = pd.read_csv('data/survey_data/aggregate_responses.csv')
+    # Import the data from TiDB Cloud if not already in session state
+    import_tidb_data('symbol')
+
+    # Assign the data from the session state
+    df_prop = st.session_state.responses
+    counts = st.session_state.counts
 
     # Add title and introduction
     write_page_title(survey_type='symbol')

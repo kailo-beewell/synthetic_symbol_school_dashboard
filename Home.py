@@ -6,16 +6,11 @@ from kailo_beewell_dashboard.static_report import (
 from kailo_beewell_dashboard.import_data import import_tidb_data
 import weasyprint
 from tempfile import NamedTemporaryFile
+from kailo_beewell_dashboard.authentication import check_password
 
 page_setup('symbol')
 
-# Set school
-st.session_state.school = 'School A'
-
-# Use test=True to indent text, which is basically just to prevent me from
-# having to redo the line indentation once have added check_password()
-test = True
-if test:
+if check_password('symbol'):
 
     # Import the data from TiDB Cloud if not already in session state
     import_tidb_data('symbol')

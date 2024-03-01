@@ -2,17 +2,12 @@ import streamlit as st
 from kailo_beewell_dashboard.page_setup import page_setup, page_footer
 from kailo_beewell_dashboard.stylable_container import header_container
 from kailo_beewell_dashboard.reuse_text import reuse_text
+from kailo_beewell_dashboard.authentication import check_password
 
 # Set page configuration
 page_setup('symbol')
 
-# Set school
-st.session_state.school = 'School A'
-
-# Use test=True to indent text, which is basically just to prevent me from
-# having to redo the line indentation once have added check_password()
-test = True
-if test:
+if check_password('symbol'):
     # Page title
     st.title('About')
 

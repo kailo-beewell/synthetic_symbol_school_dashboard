@@ -1,8 +1,9 @@
-import streamlit as st
-from kailo_beewell_dashboard.page_setup import page_setup, page_footer
-from kailo_beewell_dashboard.stylable_container import header_container
+from kailo_beewell_dashboard.page_setup import page_footer, page_setup
 from kailo_beewell_dashboard.reuse_text import reuse_text
+from kailo_beewell_dashboard.stylable_container import header_container
 from kailo_beewell_dashboard.authentication import check_password
+from kailo_beewell_dashboard.images import get_image_path
+import streamlit as st
 
 # Set page configuration
 page_setup('symbol')
@@ -20,7 +21,8 @@ if check_password('symbol'):
     header_container('green_container', '🌿 Kailo', '#D9ECCA')
     with st.expander('What is Kailo?', expanded=expand):
         st.markdown(reuse_text['kailo'])
-        st.image('images/kailo_systems_adapted.png')
+        st.image(get_image_path('kailo_systems_adapted.png'),
+                 use_column_width=True)
 
     header_container('orange_container', '🐝 The #BeeWell survey', '#F7DCC8')
     with st.expander('Who took part in the #BeeWell survey in Devon?',
@@ -31,32 +33,32 @@ Devon and Torridge completed the symbol version of the #BeeWell survey.
 
 A longer, standard version of the survey was also completed by pupils in Years
 8 and 10 at **seven mainstream secondary schools** in Northern Devon.''')
-        st.image('images/northern_devon.png')
+        st.image(get_image_path('northern_devon.png'), use_column_width=True)
 
     with st.expander('What questions did the survey ask?', expanded=expand):
         st.markdown('''The survey contained ten questions which use the Widgit
                     symbol system. These were:''')
         # Add the images (they are the same as those used for the survey, but
         # cropped to height of 340 to remove the 'choose one' from each)
-        st.image('images/survey/family_crop.png')
-        st.image('images/survey/home_crop.png')
-        st.image('images/survey/friends_crop.png')
-        st.image('images/survey/choice_crop.png')
-        st.image('images/survey/things_crop.png')
-        st.image('images/survey/health_crop.png')
-        st.image('images/survey/future_crop.png')
-        st.image('images/survey/school_crop.png')
-        st.image('images/survey/free_time_crop.png')
-        st.image('images/survey/life_crop.png')
+        st.image(get_image_path('symbol_survey/family_crop.png'))
+        st.image(get_image_path('symbol_survey/home_crop.png'))
+        st.image(get_image_path('symbol_survey/friends_crop.png'))
+        st.image(get_image_path('symbol_survey/choice_crop.png'))
+        st.image(get_image_path('symbol_survey/things_crop.png'))
+        st.image(get_image_path('symbol_survey/health_crop.png'))
+        st.image(get_image_path('symbol_survey/future_crop.png'))
+        st.image(get_image_path('symbol_survey/school_crop.png'))
+        st.image(get_image_path('symbol_survey/free_time_crop.png'))
+        st.image(get_image_path('symbol_survey/life_crop.png'))
         st.markdown('For each questions, pupils had three response options:')
-        st.image('images/survey/choose_one.png')
+        st.image(get_image_path('symbol_survey/choose_one.png'))
         cols = st.columns(3)
         with cols[0]:
-            st.image('images/survey/happy.png')
+            st.image(get_image_path('symbol_survey/happy.png'))
         with cols[1]:
-            st.image('images/survey/ok.png')
+            st.image(get_image_path('symbol_survey/ok.png'))
         with cols[2]:
-            st.image('images/survey/sad.png')
+            st.image(get_image_path('symbol_survey/sad.png'))
 
     with st.expander('How was the survey designed?', expanded=expand):
         st.markdown('''
@@ -74,7 +76,7 @@ Widgit symbol system with simplified response options.''')
 #BeeWell surveys have also been completed by pupils at schools in Hampshire,
 Greater Manchester, the London borough of Havering, and Milton Keynes. You can
 find out more about other sites at https://beewellprogramme.org/.''')
-        st.image('images/beewell_map.png')
+        st.image(get_image_path('beewell_map.png'), use_column_width=True)
 
     header_container('blue_container', '📊 Dashboard', '#D0C9FF')
 
@@ -90,12 +92,12 @@ insight into responses.''')
 
     with st.expander('How should we use these results?', expanded=expand):
         st.markdown(reuse_text['how_to_use_results'])
-        st.image('images/thinking.png')
+        st.image(get_image_path('thinking.png'), use_column_width=True)
 
     with st.expander('Can I access this dashboard on different devices?',
                      expanded=expand):
         st.markdown(reuse_text['view_devices'])
-        st.image('images/devices.png')
+        st.image(get_image_path('devices.png'), use_column_width=True)
 
     with st.expander('''
 Will there be support available for interpreting and actioning on the dashboard

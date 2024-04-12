@@ -31,4 +31,4 @@ ipykernel==6.29.0
 streamlit>=1.31.1
 
 # Functions for the dashboard
-kailo_beewell_dashboard_package==0.2.0
+kailo_beewell_dashboard==0.2.0

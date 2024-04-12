@@ -11,7 +11,7 @@ Writing of this changelog is supported by comparison of main and forked reposito
 
 ## 0.1.1
 
-**Release date:** 18th March 2024
+**Release date:** 12th April 2024
 
 **Contributors:** Amy Heather
 

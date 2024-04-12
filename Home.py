@@ -1,12 +1,13 @@
-import streamlit as st
+from kailo_beewell_dashboard.authentication import check_password
+from kailo_beewell_dashboard.images import get_image_path
+from kailo_beewell_dashboard.import_data import import_tidb_data
 from kailo_beewell_dashboard.page_setup import (
-    page_setup, page_footer, blank_lines)
+    blank_lines, page_footer, page_setup)
 from kailo_beewell_dashboard.static_report import (
     create_static_symbol_report)
-from kailo_beewell_dashboard.import_data import import_tidb_data
-import weasyprint
+import streamlit as st
 from tempfile import NamedTemporaryFile
-from kailo_beewell_dashboard.authentication import check_password
+import weasyprint
 
 page_setup('symbol')
 
@@ -24,7 +25,8 @@ You can use this dashboard to explore results from pupils at your school.</p>
 ''', unsafe_allow_html=True)
 
     # Image
-    st.image('images/home_image_3_transparent.png', use_column_width=True)
+    st.image(get_image_path('home_image_3_transparent.png'),
+             use_column_width=True)
 
     # Pages of the dashboard
     st.subheader('What each page of the dashboard can tell you')
@@ -50,7 +52,7 @@ also provide the option of downloading a PDF version of your results below.''')
     # If report had not be generated, show generate report button
     if 'pdf_report' not in st.session_state:
         # If this button is clicked...
-        if st.button('Generate report - will take around 5 seconds'):
+        if st.button('Generate report - will take around 7 seconds'):
             # Show spinner whilst operation occurs
             with st.spinner('Generating report'):
                 # Produce the HTML for the report

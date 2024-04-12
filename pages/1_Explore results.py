@@ -43,5 +43,4 @@ if check_password('symbol'):
     # Produce bar charts w/ accompanying chart section descriptions and titles
     create_bar_charts(chosen_variable, chosen_result)
 
-
-page_footer(st.session_state.school)
+    page_footer(st.session_state.school)

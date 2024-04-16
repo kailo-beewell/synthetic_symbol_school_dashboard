@@ -1154,13 +1154,13 @@ test = ["ipykernel", "pre-commit", "pytest (<8)", "pytest-cov", "pytest-timeout"
 
 [[package]]
 name = "kailo-beewell-dashboard"
-version = "0.3.2"
+version = "0.3.3"
 description = "Tools to support creation of #BeeWell survey dashboards for Kailo"
 optional = false
 python-versions = "*"
 files = [
-    {file = "kailo-beewell-dashboard-0.3.2.tar.gz", hash = "sha256:40e359da4becd19d2e915ac8e3a92cd3549eeec3df66deabd41bcb0bda9161df"},
-    {file = "kailo_beewell_dashboard-0.3.2-py3-none-any.whl", hash = "sha256:65950995182daff33e66526238915730c5a5f94af6107ffcaef1c5fb6d0d5544"},
+    {file = "kailo-beewell-dashboard-0.3.3.tar.gz", hash = "sha256:95fc150fb9158752c079427ef1fa1fa89aa1ce0c02398aef73b4925fd32a9bc6"},
+    {file = "kailo_beewell_dashboard-0.3.3-py3-none-any.whl", hash = "sha256:63b688bae75bdefdc19fe623956f2fbf9a3bace0bea23b1e8d9a9216a6c5208d"},
 ]
 
 [package.dependencies]
@@ -1175,12 +1175,14 @@ pandas = "2.1.1"
 pip = "24.0"
 plotly = "5.9.0"
 PyMySQL = "1.1.0"
+setuptools = "69.1.1"
 sphinx = "7.2.6"
 sphinx-autoapi = "3.0.0"
 sphinx-rtd-theme = "2.0.0"
 streamlit = ">=1.32.2"
 twine = "5.0.0"
 weasyprint = "60.2"
+wheel = "0.42.0"
 
 [[package]]
 name = "kaleido"
@@ -2575,6 +2577,22 @@ cryptography = ">=2.0"
 jeepney = ">=0.6"
 
 [[package]]
+name = "setuptools"
+version = "69.1.1"
+description = "Easily download, build, install, upgrade, and uninstall Python packages"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "setuptools-69.1.1-py3-none-any.whl", hash = "sha256:02fa291a0471b3a18b2b2481ed902af520c69e8ae0919c13da936542754b4c56"},
+    {file = "setuptools-69.1.1.tar.gz", hash = "sha256:5c0806c7d9af348e6dd3777b4f4dbb42c7ad85b190104837488eab9a7c945cf8"},
+]
+
+[package.extras]
+docs = ["furo", "jaraco.packaging (>=9.3)", "jaraco.tidelift (>=1.4)", "pygments-github-lexers (==0.0.5)", "rst.linker (>=1.9)", "sphinx (<7.2.5)", "sphinx (>=3.5)", "sphinx-favicon", "sphinx-inline-tabs", "sphinx-lint", "sphinx-notfound-page (>=1,<2)", "sphinx-reredirects", "sphinxcontrib-towncrier"]
+testing = ["build[virtualenv]", "filelock (>=3.4.0)", "flake8-2020", "ini2toml[lite] (>=0.9)", "jaraco.develop (>=7.21)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "packaging (>=23.2)", "pip (>=19.1)", "pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=2.2)", "pytest-home (>=0.5)", "pytest-mypy (>=0.9.1)", "pytest-perf", "pytest-ruff (>=0.2.1)", "pytest-timeout", "pytest-xdist", "tomli-w (>=1.0.0)", "virtualenv (>=13.0.0)", "wheel"]
+testing-integration = ["build[virtualenv] (>=1.0.3)", "filelock (>=3.4.0)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "packaging (>=23.2)", "pytest", "pytest-enabler", "pytest-xdist", "tomli", "virtualenv (>=13.0.0)", "wheel"]
+
+[[package]]
 name = "six"
 version = "1.16.0"
 description = "Python 2 and 3 compatibility utilities"
@@ -3097,6 +3115,20 @@ files = [
 ]
 
 [[package]]
+name = "wheel"
+version = "0.42.0"
+description = "A built-package format for Python"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "wheel-0.42.0-py3-none-any.whl", hash = "sha256:177f9c9b0d45c47873b619f5b650346d632cdc35fb5e4d25058e09c9e581433d"},
+    {file = "wheel-0.42.0.tar.gz", hash = "sha256:c45be39f7882c9d34243236f2d63cbd58039e360f85d0913425fbd7ceea617a8"},
+]
+
+[package.extras]
+test = ["pytest (>=6.0.0)", "setuptools (>=65)"]
+
+[[package]]
 name = "zipp"
 version = "3.18.1"
 description = "Backport of pathlib-compatible object wrapper for zip files"
@@ -3187,4 +3219,4 @@ test = ["pytest"]
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.12,<3.13"
-content-hash = "4193fddefe24c9dafa7cc588f9f113570ac61e5ee8f3496e6b330c46913cd1e7"
+content-hash = "235e736ef0fa013fbbfa13906cb6f7688f8131b297f56d3cc1a20eba47255615"

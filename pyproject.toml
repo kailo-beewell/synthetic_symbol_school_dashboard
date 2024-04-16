@@ -1,12 +1,13 @@
 [tool.poetry]
-name = "poetry add $(sed 's/#-*//' requirements-txt)"
+name = "kailo-beewell-dashboard-package"
 version = "0.1.0"
 description = ""
 authors = ["ellengoddard <ellenamaliaa@gmail.com>"]
 license = "MIT"
 readme = "README.md"
-packages = [{include = "poetry add $(sed 's"}]
 package-mode = false
+
+
 [tool.poetry.dependencies]
 python = ">=3.12,<3.13"
 pip = "24.0"
@@ -26,9 +27,7 @@ sphinx-rtd-theme = "2.0.0"
 myst-parser = "2.0.0"
 sphinx-autoapi = "3.0.0"
 matplotlib = "3.8.3"
-kailo-beewell-dashboard = "0.3.2"
-
-
+kailo-beewell-dashboard = "0.3.3"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
